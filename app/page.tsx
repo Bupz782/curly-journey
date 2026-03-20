@@ -7,7 +7,7 @@ import { WebsiteType } from "@/types/Website";
 
 export default async function HomePage() {
   const websites: WebsiteType[] = await fetch(
-    "http://localhost:3000/websites.json",
+    `${process.env.NEXT_PUBLIC_URL}/websites.json`,
   ).then((res) => res.json());
 
   return (

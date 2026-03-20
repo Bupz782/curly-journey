@@ -20,7 +20,7 @@ type WebsitePageType = {
 export default async function WebsitePage({ params }: WebsitePageType) {
   const { slug } = await params;
   const websites: WebsiteType[] = await fetch(
-    "http://localhost:3000/websites.json",
+    `${process.env.NEXT_PUBLIC_URL}/websites.json`,
   ).then((res) => res.json());
   const currentWebsite = websites.find((w: WebsiteType) => w.slug == slug);
   console.log("currentWebsite: ", currentWebsite);
